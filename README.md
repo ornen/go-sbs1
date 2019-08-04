@@ -1,6 +1,6 @@
 # go-sbs1
 
-This is a SBS1 parsing library for Go.
+This is a SBS1 parser for Go.
 
 ## Example
 The following example connects to the SBS1 port of `dump1090` and prints the messages.
