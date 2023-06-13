@@ -3,11 +3,12 @@ package sbs1
 import (
 	"encoding/csv"
 	"errors"
-	"github.com/golang/geo/s1"
-	"github.com/golang/geo/s2"
 	"io"
 	"strconv"
 	"time"
+
+	"github.com/golang/geo/s1"
+	"github.com/golang/geo/s2"
 )
 
 const (
@@ -92,7 +93,7 @@ func (r *Reader) parse(fields []string) (*Message, error) {
 			return nil, err
 		}
 
-	message.Generated = generated
+		message.Generated = generated
 	}
 
 	if len(fields[8]) > 0 {
@@ -150,7 +151,7 @@ func (r *Reader) parse(fields []string) (*Message, error) {
 			return nil, err
 		}
 
-		message.Coordinates = s2.LatLngFromDegrees(latitude,longitude)
+		message.Coordinates = s2.LatLngFromDegrees(latitude, longitude)
 	}
 
 	if len(fields[16]) > 0 {
@@ -162,6 +163,8 @@ func (r *Reader) parse(fields []string) (*Message, error) {
 
 		message.VerticalRate = int16(verticalRate)
 	}
+
+	message.Callsign = fields[17]
 
 	return message, nil
 }
