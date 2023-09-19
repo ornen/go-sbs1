@@ -1,33 +1,34 @@
 package sbs1
 
 import (
+	"time"
+
 	"github.com/golang/geo/s1"
 	"github.com/golang/geo/s2"
-	"time"
 )
 
-type MessageType uint8
+type MessageType string
 
 const (
-	MessageTypeSelectionChange MessageType = iota
-	MessageTypeNewId
-	MessageTypeNewAircraft
-	MessageTypeStatusAircraft
-	MessageTypeClick
-	MessageTypeTransmission
+	MessageTypeSelectionChange MessageType = "SEL"
+	MessageTypeNewId           MessageType = "ID"
+	MessageTypeNewAircraft     MessageType = "AIR"
+	MessageTypeStatusAircraft  MessageType = "STA"
+	MessageTypeClick           MessageType = "CLK"
+	MessageTypeTransmission    MessageType = "MSG"
 )
 
 type TransmissionType uint8
 
 const (
-	TransmissionTypeESIdentAndCategory TransmissionType = iota
-	TransmissionTypeESSurfacePos
-	TransmissionTypeESAirbornePos
-	TransmissionTypeESAirborneVel
-	TransmissionTypeSurveillanceAlt
-	TransmissionTypeSurveillanceId
-	TransmissionTypeAirToAir
-	TransmissionTypeAllCallReply
+	TransmissionTypeESIdentAndCategory TransmissionType = 1
+	TransmissionTypeESSurfacePos       TransmissionType = 2
+	TransmissionTypeESAirbornePos      TransmissionType = 3
+	TransmissionTypeESAirborneVel      TransmissionType = 4
+	TransmissionTypeSurveillanceAlt    TransmissionType = 5
+	TransmissionTypeSurveillanceId     TransmissionType = 6
+	TransmissionTypeAirToAir           TransmissionType = 7
+	TransmissionTypeAllCallReply       TransmissionType = 8
 )
 
 type Message struct {
