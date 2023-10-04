@@ -77,7 +77,7 @@ func Parse(fields []string) (*Message, error) {
 
 	message.Callsign = fields[10]
 
-	if len(fields[11]) > 0 {
+	if len(fields) > 11 && len(fields[11]) > 0 {
 		altitude, err := strconv.ParseInt(fields[11], 10, 32)
 
 		if err != nil {
@@ -87,7 +87,7 @@ func Parse(fields []string) (*Message, error) {
 		message.Altitude = int32(altitude)
 	}
 
-	if len(fields[12]) > 0 {
+	if len(fields) > 12 && len(fields[12]) > 0 {
 		groundSpeed, err := strconv.ParseFloat(fields[12], 16)
 
 		if err != nil {
@@ -107,7 +107,7 @@ func Parse(fields []string) (*Message, error) {
 		message.Track = s1.Angle(track) * s1.Degree
 	}
 
-	if len(fields) > 14 && len(fields[14]) > 0 && len(fields[15]) > 0 {
+	if len(fields) > 15 && len(fields[14]) > 0 && len(fields[15]) > 0 {
 		latitude, err := strconv.ParseFloat(fields[14], 64)
 
 		if err != nil {
